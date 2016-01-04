@@ -1,0 +1,5 @@
+C:\Users\ron_huang\Desktop\201601 Trend Micro\201601 Trend Micro\day1-homework\pagevalue\pagevalue\bin\Debug\pagevalue.dll
+C:\Users\ron_huang\Desktop\201601 Trend Micro\201601 Trend Micro\day1-homework\pagevalue\pagevalue\bin\Debug\pagevalue.pdb
+C:\Users\ron_huang\Desktop\201601 Trend Micro\201601 Trend Micro\day1-homework\pagevalue\pagevalue\obj\Debug\pagevalue.csprojResolveAssemblyReference.cache
+C:\Users\ron_huang\Desktop\201601 Trend Micro\201601 Trend Micro\day1-homework\pagevalue\pagevalue\obj\Debug\pagevalue.dll
+C:\Users\ron_huang\Desktop\201601 Trend Micro\201601 Trend Micro\day1-homework\pagevalue\pagevalue\obj\Debug\pagevalue.pdb

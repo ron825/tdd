@@ -1,0 +1,58 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace pagevalue
+{
+    public class CollectionSum
+    {
+        private Dictionary<int, OrderObject> collectionOrder;
+        public CollectionSum()
+        {
+            //collectionOrder = new Dictionary<int, Type>();
+            CollInit();
+        }
+        private void CollInit()
+        {
+            collectionOrder = new Dictionary<int, OrderObject>()
+            {
+                { 1, new OrderObject {Cost=1, Revenue=11, SellPrice=21}},
+                { 2, new OrderObject {Cost=2, Revenue=12, SellPrice=22}},
+                { 3, new OrderObject {Cost=3, Revenue=13, SellPrice=23}},
+                { 4, new OrderObject {Cost=4, Revenue=14, SellPrice=24}},
+                { 5, new OrderObject {Cost=5, Revenue=15, SellPrice=25}},
+                { 6, new OrderObject {Cost=6, Revenue=16, SellPrice=26}},
+                { 7, new OrderObject {Cost=7, Revenue=17, SellPrice=27}},
+                { 8, new OrderObject {Cost=8, Revenue=18, SellPrice=28}},
+                { 9, new OrderObject {Cost=9, Revenue=19, SellPrice=29}},
+                { 10, new OrderObject {Cost=10, Revenue=20, SellPrice=30}},
+                { 11, new OrderObject {Cost=11, Revenue=21, SellPrice=31}}
+            };
+        }
+        private OrderObject GetObject(int id)
+        {
+
+            OrderObject pulledObject = null;
+            collectionOrder.TryGetValue(id, out pulledObject);
+            return pulledObject;
+        }
+        public string Sum(int groupNum,string groupColumns)
+        {
+            int totalGroupPages = collectionOrder.Count / groupNum + 1;
+            string sumText = string.Empty;
+            List<int> resultList = new List<int>();
+            for (int currentPage = 1; currentPage <= totalGroupPages; currentPage++)
+            {
+                var result = collectionOrder.OrderBy(d => d.Key).Skip(groupNum * (currentPage - 1)).Take(groupNum).Sum(x => (OrderObject)x.GetType().GetProperty(groupColumns).GetValue(this));
+                resultList.Add(result);
+            }
+                //.ToDictionary(k => k.Key, v => v.Value.Cost);
+            //currentPageItems.get
+            return string.Join(",",resultList);
+            //return "6,15,24,21";
+        }
+    }
+}
