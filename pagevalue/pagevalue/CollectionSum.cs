@@ -12,7 +12,6 @@ namespace pagevalue
         private List<OrderObject> collectionOrder;
         public CollectionSum()
         {
-            //collectionOrder = new Dictionary<int, Type>();
             CollInit();
         }
         private void CollInit()
@@ -43,10 +42,9 @@ namespace pagevalue
                 var result = collectionOrder.OrderBy(d => d.Id).Skip(groupNum * (currentPage - 1)).Take(groupNum).Sum(x => (int)x.GetType().GetProperty(groupColumns).GetValue(x));
                 resultList.Add(result);
             }
-                //.ToDictionary(k => k.Key, v => v.Value.Cost);
-            //currentPageItems.get
+
             return string.Join(",",resultList);
-            //return "6,15,24,21";
+
         }
     }
 }
